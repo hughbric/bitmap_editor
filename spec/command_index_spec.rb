@@ -22,4 +22,13 @@ describe CommandIndex do
     print_command = ['S']
     expect{ CommandIndex.execute(print_command) }.to output("OO\nOA\n").to_stdout
   end
+
+  it "'?': displays help" do
+    command = ['?']
+    help = "Command formats:\n"\
+            "'I M N': sets up a new canvas\n"\
+            "'S': prints out a canvas\n"\
+            "'L X Y C': colours a coordinate\n"
+    expect{ CommandIndex.execute(command) }.to output(help).to_stdout
+  end
 end

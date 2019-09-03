@@ -15,6 +15,16 @@ class CommandIndex
       @canvas.print
     when 'L'
       @canvas.colour_coordinate(x_coordinate - 1, y_coordinate - 1, colour)
+    when '?'
+      printHelp
     end
+  end
+
+  def self.printHelp
+    help = "Command formats:\n"\
+          "'I M N': sets up a new canvas\n"\
+          "'S': prints out a canvas\n"\
+          "'L X Y C': colours a coordinate"
+    puts help
   end
 end
