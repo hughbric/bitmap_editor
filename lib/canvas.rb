@@ -7,16 +7,16 @@ class Canvas
   end
 
   def print
-    populateCanvas
     @canvas.each do |y_axis_pixels|
       puts y_axis_pixels.join
     end
   end
 
-  private
+  def populate_canvas
+    @canvas = Array.new(@x_axis_elements) { Array.new(@y_axis_elements, @colour) }
+  end
 
-  def populateCanvas
-    y_axis_pixels = Array.new(@y_axis_elements, @colour)
-    @canvas = Array.new(@x_axis_elements, y_axis_pixels)
+  def colour_coordinate(x, y, colour)
+    @canvas[x][y] = colour
   end
 end
