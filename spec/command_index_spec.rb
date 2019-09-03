@@ -20,7 +20,7 @@ describe CommandIndex do
     command = ['L', '2', '2', 'A']
     CommandIndex.execute(command)
     print_command = ['S']
-    expect{ CommandIndex.execute(print_command) }.to output("OO\nOA\n").to_stdout
+    expect{ CommandIndex.execute(print_command) }.to output("OA\nOO\n").to_stdout
   end
 
   it "'?': displays help" do
@@ -30,5 +30,14 @@ describe CommandIndex do
             "'S': prints out a canvas\n"\
             "'L X Y C': colours a coordinate\n"
     expect{ CommandIndex.execute(command) }.to output(help).to_stdout
+  end
+
+  it "'V X Y1 Y2 C': colours a vertial segment" do
+    command = ['I', '3', '3']
+    CommandIndex.execute(command)
+    command = ['V', '1', '1', '3', 'A']
+    CommandIndex.execute(command)
+    print_command = ['S']
+    expect{ CommandIndex.execute(print_command) }.to output("AOO\nAOO\nAOO\n").to_stdout
   end
 end
