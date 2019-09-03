@@ -35,4 +35,10 @@ class Canvas
       end
     end
   end
+
+  def clear
+    @canvas.each_with_index do |row, i|
+      colour_horizontal(i, 0, row.length, 'O')
+    end
+  end
 end
