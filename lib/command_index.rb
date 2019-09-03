@@ -23,6 +23,12 @@ class CommandIndex
       y_two_input = input_command[3].to_i
       v_colour = input_command[4]
       @canvas.colour_vertical(x_coord - 1, y_one_input - 1, y_two_input - 1, v_colour)
+    when 'H'
+      y_coord = input_command[3].to_i
+      x_one_input = input_command[1].to_i
+      x_two_input = input_command[2].to_i
+      v_colour = input_command[4]
+      @canvas.colour_horizontal(y_coord - 1, x_one_input - 1, x_two_input - 1, v_colour)
     end
   end
 

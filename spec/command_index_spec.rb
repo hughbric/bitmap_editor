@@ -40,4 +40,14 @@ describe CommandIndex do
     print_command = ['S']
     expect{ CommandIndex.execute(print_command) }.to output("AOO\nAOO\nAOO\n").to_stdout
   end
+
+  it "'H X1 X2 Y C': colours a horizontal segment" do
+    command = ['I', '3', '3']
+    CommandIndex.execute(command)
+    command = ['H', '1', '3', '1', 'A']
+    CommandIndex.execute(command)
+    print_command = ['S']
+    expect{ CommandIndex.execute(print_command) }.to output("OOO\nOOO\nAAA\n").to_stdout
+  end
+  
 end

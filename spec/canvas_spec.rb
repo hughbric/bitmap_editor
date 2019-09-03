@@ -42,4 +42,22 @@ describe Canvas do
     canvas.colour_coordinate(0, 2, 'A')
     expect{ canvas.print }.to output("AOO\nOOO\nOOO\n").to_stdout
   end
+
+  it 'colours two vertial segments (3, 2 & 3)' do
+    x = 3
+    y = 4
+    canvas = Canvas.new(x, y)
+    canvas.populate_canvas
+    canvas.colour_vertical(2, 1, 2, 'A')
+    expect{ canvas.print }.to output("OOO\nOOA\nOOA\nOOO\n").to_stdout
+  end
+
+  it 'colours two horizontal segments (3, 1 & 2)' do
+    x = 3
+    y = 4
+    canvas = Canvas.new(x, y)
+    canvas.populate_canvas
+    canvas.colour_horizontal(2, 0, 1, 'A')
+    expect{ canvas.print }.to output("OOO\nAAO\nOOO\nOOO\n").to_stdout
+  end
 end

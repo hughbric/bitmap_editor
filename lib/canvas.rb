@@ -26,6 +26,13 @@ class Canvas
         row_x_pixels[x] = colour
       end
     end
-    @canvas
+  end
+
+  def colour_horizontal(y, x1, x2, colour)
+    @canvas[y].map.with_index do |pixel, index|
+      if index.between?(x1, x2)
+        @canvas[y][index] = colour
+      end
+    end
   end
 end
