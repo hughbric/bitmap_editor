@@ -1,20 +1,31 @@
+require_relative './command_index'
+
 class Editor
-VALID_COMMANDS = [ 'I', 'C', 'L', 'V', 'H', 'F', 'W', 'S', 'X', '?' ]
+  VALID_COMMANDS = [ 'I', 'C', 'L', 'V', 'H', 'F', 'W', 'S', 'X', '?' ]
 
   def initialize
     puts "Welcome. Please enter a command:"
   end
 
   def run
-    input = gets.chomp
-    command = format(input)
-    check_valid(command)
+    loop do
+      input = gets.chomp
+      command = format(input)
+
+      if check_valid(command)
+        CommandIndex.execute(command)
+      end
+
+      if command[0] == 'X'
+        break
+      end
+    end
   end
 
   private
 
   def format(input)
-    input.split(' ')
+    input.upcase.split(' ')
   end
 
   def check_valid(command)
