@@ -38,6 +38,11 @@ class Editor
       puts 'The command entered is too long, try again:'
       return false
     end
+
+    if command[1].to_i > 250 || command[2].to_i > 250
+      puts 'The canvas size limit is 250'
+      return false
+    end
     true
   end
 end
